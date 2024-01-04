@@ -40,7 +40,7 @@ from loguru import logger
 from pydantic import BaseModel, Field
 from transformers import AutoTokenizer, AutoModel
 from utils import process_response, generate_chatglm3, generate_stream_chatglm3
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 
 from sse_starlette.sse import EventSourceResponse
 
@@ -489,5 +489,5 @@ if __name__ == "__main__":
     model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="auto").eval()
 
     # load Embedding
-    embedding_model = SentenceTransformer(EMBEDDING_PATH, device="cuda")
+    # embedding_model = SentenceTransformer(EMBEDDING_PATH, device="cuda")
     uvicorn.run(app, host='0.0.0.0', port=8000, workers=1)
