@@ -29,7 +29,7 @@ st.set_page_config(
 def get_model():
 
     tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_PATH, trust_remote_code=True)
-    model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="auto").eval()
+    model = AutoModel.from_pretrained(MODEL_PATH, trust_remote_code=True, device_map="cuda").eval()
     return tokenizer, model
 
 
